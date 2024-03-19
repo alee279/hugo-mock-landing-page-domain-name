@@ -1,34 +1,33 @@
-<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+{{ define "main" }}
 
-    {{ range first 3 (where .Site.RegularPages.ByDate.Reverse "Section" "post" ) }}
-        <div class="col">
+<section class="section bd-masthead">
+  <div class="container-xxl">
+    <div class="col-md-8 mx-auto text-center my-5">
+<<<<<<< HEAD
+      <img class="d-block mx-auto mb-3" src="{{ `images/logo.png`}}" width="200" height="200" alt="" style="border-radius: 50%;">
+=======
+      <img class="d-block mx-auto mb-3" src="{{ `images/logo.jpg`}}" width="200" height="200" alt="Bootstrap" style="border-radius: 50%;">
+>>>>>>> parent of f8573e9 (files: image titles)
+      <h1 class="display-4 fw-semibold mb-3">{{ .Site.Title }}</h1>
+      <p class="lead mb-4">{{ .Site.Params.Description }}</p>
+      <a class="btn btn-bd-primary btn-lg px-4 mb-2" href="https://github.com/alee279/hugo-mock-landing-page" role="button">Get Started</a>
+      <p class="text-muted mb-0">Open-source MIT Licensed.</p>
+    </div>
+  </div>
+</section>
 
-            <div class="card h-100">
-                <div class="card-body">
-                    <h4 class="card-title">
-                        <a class="stretched-link text-primary text-decoration-none" href="{{ .Permalink }}">
-                            {{ .Title }}
-                        </a>
-                    </h4>
-                    {{ with .Params.authors }}
-                        <p class="card-subtitle text-muted">
-                            by {{ index . 0 }}
-                        </p>
-                    {{ end }}
-                    <p class="card-text mt-3">
-                        {{ with .Params.description }}
-                            {{ . }}
-                        {{ else }}
-                            {{ .Summary | truncate 200 }}
-                        {{ end }}
-                    </p>
-                </div>
-                <div class="card-footer">
-                    <small class="text-muted">{{ .Date | time.Format ":date_long" }}</small>
-                </div>
-            </div>
- 
-        </div>
-    {{ end }}
+<section class="section container my-3">
+  {{ partial "features" . }}
+</section>
 
-</div>
+<section class="section container my-3">
+  <h3 class="text-secondary text-center my-5">Latest Posts</h3>
+  {{ partial "latest-posts" . }}
+</section>
+
+<section class="section container my-3">
+  <h3 class="text-secondary text-center my-5">Featured Pages</h3>
+  {{ partial "featured-pages" . }}
+</section>
+
+{{ end }}
