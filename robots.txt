@@ -1,3 +1,3 @@
 User-agent: *
 Disallow: /404.html
-Sitemap: amlee.xyz/sitemap.xml
+Sitemap: http://amlee.xyz/sitemap.xml
